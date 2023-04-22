@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityUser>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+@*Öğrencinin Projelerinin Tablosu burayı role göre sadece öğrenci görecek*@
+<div>
+<table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>john@example.com</td>
+        </tr>
+        <tr>
+            <td>Mary</td>
+            <td>Moe</td>
+            <td>mary@example.com</td>
+        </tr>
+        <tr>
+            <td>July</td>
+            <td>Dooley</td>
+            <td>july@example.com</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+
+@*Danışman Öğrencileri Görecek (rolü öğrenci olan Identity Userları)*@
+
+
+<h2>Kullanıcı Listesi</h2>
+
+
+<div>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Öğrenci</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+               @foreach (var user in Model)
+                {
+                <tr>
+                    <td>@user.Email</td>
+                </tr>
+                } 
+            }
+            
+        </tbody>
+    </table>
+</div>
+
+
+@*Jüriler Öğrencileri Görecek tıklayınca Sadece Kendilerinin Not verebileceği projelerini görecek projelere tıklayınca bir form çıkacak o form içinde 3 kritere göre not verecek*@
+
+
+
+
